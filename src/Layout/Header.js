@@ -7,7 +7,7 @@ const Header = () => {
         <div className="container py-6">
             <div className="flex justify-between items-center">
                 <div>
-                    <h2 className="text-4xl font-extrabold">MiniShop</h2>
+                    <h2 className="text-4xl font-extrabold"><Link to="/">MiniShop</Link></h2>
                 </div>
                 <div>
                     <ul className="flex space-x-4">
