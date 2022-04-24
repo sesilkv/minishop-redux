@@ -7,9 +7,10 @@ const ProductDetail = () => {
     const [product, setProduct] = useState({})
     const params = useParams()
     const dispatch = useDispatch()
+    
     const addButtonHandler = (id, title, price) => {
       dispatch({
-        type: 'addCarItem',
+        type: 'addCartItem',
         payload: {
           id, title, price
         }
@@ -28,7 +29,7 @@ const ProductDetail = () => {
         .catch(error=> {
           setProduct({...error})
         })
-    }, [])
+    })
 
   return (
     <section>

@@ -10,10 +10,10 @@
 
 const reducer = (state = [], action) => {
     switch (action.type){
-        case 'addCarItem':
+        case 'addCartItem':
             {
                 const newState = [...state]
-                const itemIndex = newState.findIndex(item => item.id === item.payload.id)
+                const itemIndex = newState.findIndex(item => item.id === action.payload.id)
                 if (itemIndex < 0){
                     newState.push({
                         id: action.payload.id,
@@ -27,7 +27,7 @@ const reducer = (state = [], action) => {
                 console.log(newState)
                 return newState
             }
-        case 'lessCarItem':
+        case 'lessCartItem':
             {
                 const newState = [...state]
                 const itemIndex = newState.findIndex(item => item.id === action.payload.id)
@@ -39,7 +39,7 @@ const reducer = (state = [], action) => {
                 console.log(newState)
                 return newState
             }
-        case 'removeCarItem':
+        case 'removeCartItem':
             {
                 const newState = [...state]
                 newState.splice(action.payload.index, 1)
