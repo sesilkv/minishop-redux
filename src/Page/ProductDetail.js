@@ -1,10 +1,20 @@
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import { useDispatch } from 'react-redux'
 
 const ProductDetail = () => {
     const [product, setProduct] = useState({})
     const params = useParams()
+    const dispatch = useDispatch()
+    const addButtonHandler = (id, title, price) => {
+      dispatch({
+        type: 'addCarItem',
+        payload: {
+          id, title, price
+        }
+      })
+    }
 
     useEffect(() => {
         axios.get(`https://fakestoreapi.com/products/${params.id}`)
@@ -34,7 +44,7 @@ const ProductDetail = () => {
               <h2 className='text-2xl mb-4 font-bold'>{product.title}</h2>
               <h1 className='text-4xl text-red-500 mb-4 font-extrabold'>${product.price}</h1>
               <div>{product.description}</div>
-              <button className='bg-green-500 border-o px-6 py-2 text-white mt-8'>Add to cart</button>
+              <button onClick={() => addButtonHandler(product.id, product.title, product.price)} className='bg-green-500 border-o px-6 py-2 text-white mt-8'>Add to cart</button>
             </div>
           </div>
         }
