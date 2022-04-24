@@ -42,8 +42,7 @@ const reducer = (state = [], action) => {
         case 'removeCarItem':
             {
                 const newState = [...state]
-                newState.splice(action.payload.id, 1)
-                console.log(newState)
+                newState.splice(action.payload.index, 1)
                 return newState
             }
         default:
